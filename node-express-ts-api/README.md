@@ -92,7 +92,7 @@ To start the application in development mode, run:
 npm install -g nodemon
 npm install -g ts-node
 npm install -g typescript
-npm install
+
 ```
 
 Start the application in dev env:

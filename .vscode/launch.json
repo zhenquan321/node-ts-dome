@@ -9,8 +9,8 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "node-express-typescript-api",
-            "program": "${workspaceFolder}/node-express-typescript-api/build/config/server/index.js",
+            "name": "node-express-ts-api",
+            "program": "${workspaceFolder}/node-express-ts-api/build/config/server/index.js",
             "outFiles": [
                 "${workspaceFolder}/build/**/*.js"
             ],
