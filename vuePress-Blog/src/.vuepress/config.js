@@ -10,12 +10,12 @@ module.exports = {
 		editLinks: true,
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
-			{ text: '大前端', link: '/frontEnd/' },
+			// { text: '大前端', link: '/frontEnd/' },
 			{ text: 'node', link: '/node/' },
 			{ text: 'offer之道', link: '/offer/' },
 			{ text: '大厂真题', link: '/interviewQuestions/bytedance' },
 			// { text: '随笔', link: '/blog/' },
-			{ text: '支持', link: '/support/' }
+			// { text: '支持', link: '/support/' }
 		],
 		logo: '/vuepress-blog-logo.png',
 		docsDir: 'src',
@@ -144,6 +144,7 @@ function renderOfferSiderBar() {
 				'htmlBasic',
 				'cssBasic',
 				'jsBasic',
+				"es6-7-8",
 				'browser',
 				'dom',
 				// 'designPatterns',

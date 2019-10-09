@@ -62,6 +62,17 @@ resetVehicleRedis =()=>{
 12. 类式继承的方案
 13. prototype继承的实现
 14. 数字千分位处理，正则和非正则都要实现
+```js
+    function numFormat(num) {
+        if (num.toString().indexOf ('.') !== -1)  {
+            var b = num.toLocaleString();
+            return b;
+        } else {
+            var c = num.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+            return c;
+        }
+    }
+```
 15. 借用构造继承，几种组合继承方式
 16. 看编程代码说出运行结果：
       Process.nextTick，setImmediate 和promise.then 的优先级

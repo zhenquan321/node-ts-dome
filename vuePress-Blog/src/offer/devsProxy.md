@@ -1,10 +1,8 @@
 # Proxy比defineproperty优劣对比?
 
 
-
 ## 前言
 
-**双向绑定**其实已经是一个老掉牙的问题了,只要涉及到MVVM框架就不得不谈的知识点,但它毕竟是Vue的三要素之一.
 
 **Vue三要素**:
 
@@ -93,7 +91,7 @@ data.name = '渣渣辉';
 
 > 我们看到，虽然Vue运用了数据劫持，但是依然离不开**发布订阅**的模式，之所以在系列2做了[Event Bus的实现](https://juejin.im/post/5ac2fb886fb9a028b86e328c),就是因为我们不管在学习一些框架的原理还是一些流行库（例如Redux、Vuex）,基本上都离不开**发布订阅**模式,而*Event*模块则是此模式的经典实现,所以如果不熟悉**发布订阅**模式,建议读一下系列2的文章。
 
-## 2.基于Object.defineProperty双向绑定的特点
+## 基于Object.defineProperty双向绑定的特点
 
 关于`Object.defineProperty`的文章在网络上已经汗牛充栋,我们不想花过多时间在`Object.defineProperty`上面,本节我们主要讲解`Object.defineProperty`的特点,方便接下来与`Proxy`进行对比。
 
@@ -129,8 +127,8 @@ input.addEventListener('keyup', function(e){
 
 ```
 
-<p data-height="300" data-theme-id="33015" data-slug-hash="gzmEab" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="gzmEab" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/gzmEab/">极简版双向绑定</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<!-- <p data-height="300" data-theme-id="33015" data-slug-hash="gzmEab" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="gzmEab" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/gzmEab/">极简版双向绑定</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
 
 #### 2.2 升级改造
 
@@ -309,8 +307,8 @@ Vue的操作就是加入了**发布订阅**模式，结合`Object.defineProperty
 
 ![](https://user-gold-cdn.xitu.io/2018/5/1/1631c5aa9c52493e?w=231&h=93&f=gif&s=1025039)
 
-<p data-height="300" data-theme-id="33015" data-slug-hash="jxBRgj" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="双向绑定实现---无漏洞" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/jxBRgj/">双向绑定实现---无漏洞版</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<!-- <p data-height="300" data-theme-id="33015" data-slug-hash="jxBRgj" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="双向绑定实现---无漏洞" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/jxBRgj/">双向绑定实现---无漏洞版</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
 
 至此,一个简单的双向绑定算是被我们实现了。
 
@@ -354,8 +352,8 @@ setTimeout(
 );
 ```
 
-<p data-height="300" data-theme-id="33015" data-slug-hash="NMjKxV" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="双向绑定-数组漏洞" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/NMjKxV/">双向绑定-数组漏洞</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<!-- <p data-height="300" data-theme-id="33015" data-slug-hash="NMjKxV" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="双向绑定-数组漏洞" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/NMjKxV/">双向绑定-数组漏洞</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
 
 是的,`Object.defineProperty`的第一个缺陷,无法监听数组变化。
 然而[Vue的文档](https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B)提到了Vue是可以检测到数组变化的，但是只有以下八种方法,`vm.items[indexOfItem] = newValue`这种是无法检测的。
@@ -407,7 +405,8 @@ list2.push('d');  // 4
 Object.keys(value).forEach(key => this.convert(key, value[key]));
 ```
 
-## 3.Proxy实现的双向绑定的特点
+
+## Proxy实现的双向绑定的特点
 
 Proxy在ES2015规范中被正式发布,它在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写,我们可以这样认为,Proxy是`Object.defineProperty`的全方位加强版,具体的文档可以查看[此处](http://es6.ruanyifeng.com/#docs/proxy);
 
@@ -441,8 +440,8 @@ input.addEventListener('keyup', function(e) {
 
 ```
 
-<p data-height="300" data-theme-id="33015" data-slug-hash="KRmwRE" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="KRmwRE" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/KRmwRE/">Proxy版</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<!-- <p data-height="300" data-theme-id="33015" data-slug-hash="KRmwRE" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="KRmwRE" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/KRmwRE/">Proxy版</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
 
 我们可以看到,Proxy直接可以劫持整个对象,并返回一个新对象,不管是操作便利程度还是底层功能上都远强于`Object.defineProperty`。
 
@@ -503,8 +502,8 @@ btn.addEventListener('click', function() {
 });
 ```
 
-<p data-height="300" data-theme-id="33015" data-slug-hash="zjwGoN" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="zjwGoN" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/zjwGoN/">Proxy列表渲染</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<!-- <p data-height="300" data-theme-id="33015" data-slug-hash="zjwGoN" data-default-tab="js,result" data-user="xiaomuzhu" data-embed-version="2" data-pen-title="zjwGoN" class="codepen">在线示例 <a href="https://codepen.io/xiaomuzhu/pen/zjwGoN/">Proxy列表渲染</a> by Iwobi (<a href="https://codepen.io/xiaomuzhu">@xiaomuzhu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
 
 很显然,Proxy不需要那么多hack（即使hack也无法完美实现监听）就可以无压力监听数组的变化,我们都知道,标准永远优先于hack。
 

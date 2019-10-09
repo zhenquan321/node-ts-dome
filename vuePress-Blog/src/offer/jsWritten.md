@@ -52,7 +52,25 @@ const throttle = (fn, delay = 500) => {
   };
 };
 ```
-
+```js
+// 节流函数-传参版
+let throttle = (fn, delay = 500,s) => {
+  let flag = true;
+  return (...args) => {
+    if (!flag) return;
+    flag = false;
+    setTimeout(() => {
+      let qr=s.concat(args);
+      fn.apply(this,qr);
+      flag = true;
+    }, delay);
+  };
+}
+function aaa (s,e){
+  console.log(s,e)
+}
+window.onresize = debounce(aaa,500,["8888"])
+```
 适用场景：
 
 * 拖拽场景：固定时间内只执行一次，防止超高频次触发位置变动
