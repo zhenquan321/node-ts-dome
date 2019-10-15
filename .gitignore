@@ -6,6 +6,9 @@ vuePress-Blog/node_modules
 node-express-ts-api/node_modules 
 node-ts-koa-rest/node_modules 
 node-express-ts-api/build 
+koa2-mongodb-blog/node_modules 
+blog-service-nest/node_modules 
+*/node_modules 
 # local env files
 .env.local
 .env.*.local
