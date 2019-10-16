@@ -4,6 +4,8 @@ import * as passportConfig from '../config/middleware/passport';
 import * as swaggerUi from 'swagger-ui-express';
 import AuthRouter from './AuthRouter';
 import UserRouter from './UserRouter';
+import ReptileRouter from './ReptileRouter';
+
 let swaggerDoc: Object;
 
 try {
@@ -36,6 +38,14 @@ export function init(app: express.Application): void {
      * @constructs
      */
     app.use('/auth', AuthRouter);
+
+      /**
+     * @description
+     * 爬虫
+     * @constructs
+     */
+    app.use('/reptile', ReptileRouter);
+  
 
     /**
      * @description

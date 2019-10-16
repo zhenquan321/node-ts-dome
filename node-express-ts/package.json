@@ -32,20 +32,24 @@
   "dependencies": {
     "bcrypt": "3.0.4",
     "body-parser": "1.18.2",
+    "cheerio": "^1.0.0-rc.3",
     "compression": "1.7.1",
+    "connect-mongo": "2.0.3",
     "cookie-parser": "1.4.3",
     "cors": "2.8.5",
     "dotenv": "4.0.0",
+    "eventproxy": "^1.0.0",
     "express": "4.16.2",
+    "express-session": "1.15.6",
     "helmet": "3.9.0",
     "joi": "14.3.0",
     "mongoose": "5.4.0",
-    "ts-node": "6.0.3",
-    "util": "0.11.1",
     "passport": "0.4.0",
     "passport-local": "1.0.0",
-    "express-session": "1.15.6",
-    "connect-mongo": "2.0.3"
+    "superagent": "^5.1.0",
+    "superagent-charset": "^1.2.0",
+    "ts-node": "6.0.3",
+    "util": "0.11.1"
   },
   "devDependencies": {
     "@types/bcrypt": "3.0.0",
