@@ -73,8 +73,15 @@ module.exports = {
       password
     }
     try {
-      const result = await UserModel.create(user)
-      ctx.body = result
+      const result = await UserModel.create(user);
+      ctx.session.user = {
+        _id: result._id,
+        name: result.name,
+        isAdmin: result.isAdmin,
+        email: result.email
+      }
+      ctx.flash = { success: '注册成功！' };
+      ctx.redirect('/')
     } catch (err) {
       if (err.message.match('duplicate key')) {
         ctx.flash = { warning: '用户名已存在' }
