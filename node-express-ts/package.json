@@ -30,7 +30,7 @@
     "src"
   ],
   "dependencies": {
-    "bcrypt": "3.0.4",
+    "bcrypt": "5.0.0",
     "body-parser": "1.18.2",
     "cheerio": "^1.0.0-rc.3",
     "compression": "1.7.1",
